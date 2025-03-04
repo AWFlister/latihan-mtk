@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan MTK</title>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+        }
+
+        .sidebar {
+            padding: 1em;
+        }
+
+        .main-body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Latihan MTK</h1>
+    </div>
+    <div class="grid">
+        <div class="sidebar">
+            <fieldset id="operasi" onchange="handleOperasiChange()">
+                <legend>Operasi:</legend>
+
+                <div>
+                    <input type="radio" name="operasi" id="tambah" value="tambah" checked />
+                    <label for="tambah">Penjumlahan</label>
+                </div>
+                <div>
+                    <input type="radio" name="operasi" id="kurang" value="kurang" />
+                    <label for="kurang">Pengurangan</label>
+                </div>
+                <div>
+                    <input type="radio" name="operasi" id="kali" value="kali" />
+                    <label for="kali">Perkalian</label>
+                </div>
+                <div>
+                    <input type="radio" name="operasi" id="bagi" value="bagi" />
+                    <label for="bagi">Pembagian</label>
+                </div>
+            </fieldset>
+
+        </div>
+        <div class="main-body">
+            <div>
+                TEST
+            </div>
+            <div>
+                TEST
+            </div>
+            <div>
+                TEST
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/latihan_mtk.js"></script>
+
+</html>
