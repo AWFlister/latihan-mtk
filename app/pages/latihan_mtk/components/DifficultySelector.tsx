@@ -14,7 +14,7 @@ type Props = {
 
 export function DifficultySelector({ difficulty, setDifficulty, operation, allowNegative, setAllowNegative }: Props) {
     return (
-        <div>
+        <div className="border border-primary p-3 rounded">
             <h5>Tingkat Kesulitan</h5>
             {operation === OPERATIONS.PLUS && (
                 <AdditionDifficultySelector difficulty={difficulty} setDifficulty={setDifficulty} />

@@ -14,7 +14,7 @@ export function generateNumbers(operation: Operation, difficulty: number, option
                 secondNum = Math.floor(1 + Math.random() * 8);
                 break;
             case 2:
-                firstNum = Math.floor(10 + Math.random() * 8);
+                firstNum = Math.floor(1 + Math.random() * 8);
                 secondNum = Math.floor(10 + Math.random() * 89);
                 break;
             case 3:
@@ -23,7 +23,7 @@ export function generateNumbers(operation: Operation, difficulty: number, option
                 break;
             case 4:
                 firstNum = Math.floor(10 + Math.random() * 89);
-                secondNum = Math.floor(10 + Math.random() * 899);
+                secondNum = Math.floor(100 + Math.random() * 899);
                 break;
             case 5:
                 firstNum = Math.floor(100 + Math.random() * 899);
@@ -49,7 +49,7 @@ export function generateNumbers(operation: Operation, difficulty: number, option
                 secondNum = Math.floor(1 + Math.random() * 8);
                 break;
             case 2:
-                firstNum = Math.floor(10 + Math.random() * 8);
+                firstNum = Math.floor(1 + Math.random() * 8);
                 secondNum = Math.floor(10 + Math.random() * 89);
                 break;
             case 3:
@@ -58,7 +58,7 @@ export function generateNumbers(operation: Operation, difficulty: number, option
                 break;
             case 4:
                 firstNum = Math.floor(10 + Math.random() * 89);
-                secondNum = Math.floor(10 + Math.random() * 899);
+                secondNum = Math.floor(100 + Math.random() * 899);
                 break;
             case 5:
                 firstNum = Math.floor(100 + Math.random() * 899);

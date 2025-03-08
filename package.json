@@ -1,15 +1,12 @@
 {
-  "name": "AWFlister",
-  "homepage": "https://AWFlister.github.io",
+  "name": "latihan-mtk",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc",
-    "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d build -b main"
+    "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
     "@react-router/node": "^7.1.5",
@@ -27,7 +24,6 @@
     "@types/node": "^20",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
-    "gh-pages": "^6.3.0",
     "react-router-devtools": "^1.1.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.2",

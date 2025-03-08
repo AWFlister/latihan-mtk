@@ -12,6 +12,7 @@ export function LatihanMTK() {
   const [answer, setAnswer] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [allowNegative, setAllowNegative] = useState<boolean>(false);
+  const [history, setHistory] = useState<{ question: string; userAnswer: string; correctAnswer: string }[]>([]);
 
   useEffect(setNums, [operation, difficulty, allowNegative]);
 
@@ -45,12 +46,17 @@ export function LatihanMTK() {
 
   function handleSubmit() {
     if (operation === OPERATIONS.DIVISION) {
-      return
-    } else {
-      const correctAnswer = calculateAnswer() as number;
-      const isCorrect = parseFloat(answer) === correctAnswer;
-      setMessage(isCorrect ? "Benar!" : `Salah. Jawaban yang benar adalah ${correctAnswer}`);
+      return;
     }
+
+    const correctAnswer = calculateAnswer() as number;
+    const isCorrect = parseFloat(answer) === correctAnswer;
+    setMessage(isCorrect ? "Benar!" : `Salah. Jawaban yang benar adalah ${correctAnswer}`);
+
+    setHistory((prev) => [
+      { question: `${num1} ${OPSYMBOLS[operation]} ${num2}`, userAnswer: answer, correctAnswer: correctAnswer.toString() },
+      ...prev.slice(0, 9), // Keep only last 10 items
+    ]);
 
     setNums();
     setAnswer("");
@@ -60,6 +66,7 @@ export function LatihanMTK() {
     const newOperation: Operation = parseInt(e.target.value) as Operation;
     setOperation(newOperation);
     setNums();
+    setHistory([]);
     setMessage("");
   }
 
@@ -74,7 +81,7 @@ export function LatihanMTK() {
     <Container className="mt-4 px-8">
       <Row>
         <Col md={3}>
-          <Form>
+          <Form className="border border-primary p-3 rounded">
             <h5>Operasi</h5>
             {Object.values(OPERATIONS).map((op) => (
               <Form.Check
@@ -142,7 +149,19 @@ export function LatihanMTK() {
         <Button className="mt-4" onClick={handleSubmit}>
           Jawab
         </Button>
-        {message && <p className="mt-4">{message}</p>}
+        <p className="mt-4">{message ? message : '\u00A0'}</p>
+        <Stack className="mt-2 col-md-6 mx-auto">
+          <h5>Riwayat Jawaban</h5>
+          {history.length > 0 && (
+            <ul className="list-unstyled">
+              {history.map((entry, index) => (
+                <li key={index} className="my-2">
+                  {entry.question} = {entry.correctAnswer} ({entry.userAnswer === entry.correctAnswer ? "✅" : `❌ ${entry.userAnswer}`})
+                </li> // ini question generator jadiin util func sendiri
+              ))}
+            </ul>
+          )}
+        </Stack>
       </Stack>
     </Container>
   );

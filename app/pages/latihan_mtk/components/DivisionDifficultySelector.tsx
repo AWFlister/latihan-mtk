@@ -1,33 +1,39 @@
+// STILL WIP
 import { Form } from "react-bootstrap";
 
-export function DivisionDifficultySelector({ difficulty, setDifficulty }) {
+type Props = {
+  difficulty: number,
+  setDifficulty: Function,
+}
+
+const labels = [
+  '',
+  "Level 1 (1 digit)",
+  "Level 2 (1 digit dan 2 digit)",
+  "Level 3 (2 digit)",
+  "Level 4 (2 digit dan 3 digit)",
+  "Level 5 (3 digit)",
+]
+
+export function DivisionDifficultySelector({ difficulty, setDifficulty }: Props) {
   return (
     <div>
       <Form>
-        <Form.Check
-          type="radio"
-          label="1 digit ÷ 1 digit"
-          name="difficulty"
-          value="1"
-          checked={difficulty === "1"}
-          onChange={(e) => setDifficulty(e.target.value)}
-        />
-        <Form.Check
-          type="radio"
-          label="2 digit ÷ 1 digit"
-          name="difficulty"
-          value="2"
-          checked={difficulty === "2"}
-          onChange={(e) => setDifficulty(e.target.value)}
-        />
-        <Form.Check
-          type="radio"
-          label="2 digit ÷ 2 digit"
-          name="difficulty"
-          value="3"
-          checked={difficulty === "3"}
-          onChange={(e) => setDifficulty(e.target.value)}
-        />
+        {
+          labels.map((label, idx) => {
+            if (idx) return (
+              <Form.Check
+                id={`addition-${idx}-radio`}
+                key={label}
+                type="radio"
+                label={label}
+                name="difficulty"
+                value={idx}
+                checked={difficulty == idx}
+                onChange={(e) => setDifficulty(e)}
+              />)
+          })
+        }
       </Form>
     </div>
   );
