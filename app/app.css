@@ -13,3 +13,23 @@ body {
     color-scheme: dark;
   }
 }
+
+button:active {
+  transform: scale(0.99);
+  /* Slight shrink effect */
+}
+
+button:hover {
+  box-shadow: 0 0 5px currentColor;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: small;
+}
+
+footer a {
+  color: black;
+}

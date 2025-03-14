@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Form, Button, Stack } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Stack, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { DifficultySelector } from "./components/DifficultySelector";
 import { OPERATIONS, type Operation, OPSYMBOLS, OPLABELS } from "./utils/constants";
 import { generateNumbers } from "./utils/generateNumbers";
+import { FaSync } from "react-icons/fa";
 
 export function LatihanMTK() {
   const [operation, setOperation] = useState<Operation>(OPERATIONS.PLUS);
@@ -80,7 +81,7 @@ export function LatihanMTK() {
   return (
     <Container className="mt-4 px-8">
       <Row>
-        <Col md={3}>
+        <Col md={4}>
           <Form className="border border-primary p-3 rounded">
             <h5>Operasi</h5>
             {Object.values(OPERATIONS).map((op) => (
@@ -99,10 +100,10 @@ export function LatihanMTK() {
           </Form>
         </Col>
 
-        <Col md={6}>
+        <Col md={4}>
         </Col>
 
-        <Col md={3}>
+        <Col md={4}>
           <DifficultySelector
             difficulty={difficulty}
             setDifficulty={handleDifficultyChange}
@@ -146,9 +147,16 @@ export function LatihanMTK() {
             )}
           </Col>
         </Row>
-        <Button className="mt-4" onClick={handleSubmit}>
-          Jawab
-        </Button>
+        <Stack className="mt-4" direction="horizontal" gap={2}>
+          <Button className="flex-grow-1" onClick={handleSubmit}>
+            Jawab
+          </Button>
+          <OverlayTrigger placement="top" overlay={<Tooltip>Ubah Soal</Tooltip>}>
+            <Button variant="secondary" className="d-flex align-items-center" onClick={setNums}>
+              &nbsp; <FaSync /> &nbsp;
+            </Button>
+          </OverlayTrigger>
+        </Stack>
         <p className="mt-4">{message ? message : '\u00A0'}</p>
         <Stack className="mt-2 col-md-6 mx-auto">
           <h5>Riwayat Jawaban</h5>
