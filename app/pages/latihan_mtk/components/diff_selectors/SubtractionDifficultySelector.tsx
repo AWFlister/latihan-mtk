@@ -16,7 +16,7 @@ const labels = [
   "Level 5 (3 digit)",
 ]
 
-export function SubtractionDifficultySelector({ difficulty, setDifficulty, allowNegative, setAllowNegative }: Props) {
+export default function SubtractionDifficultySelector({ difficulty, setDifficulty, allowNegative, setAllowNegative }: Props) {
   return (
     <div>
       <Form>

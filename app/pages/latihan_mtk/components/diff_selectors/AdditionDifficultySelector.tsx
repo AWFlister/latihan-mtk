@@ -7,14 +7,14 @@ type Props = {
 
 const labels = [
   '',
-  "1 digit x 1 digit (< 5)",
-  "1 digit x 1 digit",
-  "2 digit x 1 digit (< 5)",
-  "2 digit x 1 digit",
-  "2 digit x 2 digit",
+  "Level 1 (1 digit)",
+  "Level 2 (1 digit dan 2 digit)",
+  "Level 3 (2 digit)",
+  "Level 4 (2 digit dan 3 digit)",
+  "Level 5 (3 digit)",
 ]
 
-export function MultiplicationDifficultySelector({ difficulty, setDifficulty }: Props) {
+export default function AdditionDifficultySelector({ difficulty, setDifficulty }: Props) {
   return (
     <div>
       <Form>
@@ -22,7 +22,7 @@ export function MultiplicationDifficultySelector({ difficulty, setDifficulty }: 
           labels.map((label, idx) => {
             if (idx) return (
               <Form.Check
-                id={`multiplication-${idx}-radio`}
+                id={`addition-${idx}-radio`}
                 key={label}
                 type="radio"
                 label={label}

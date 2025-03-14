@@ -1,3 +1,4 @@
+// STILL WIP
 import { Form } from "react-bootstrap";
 
 type Props = {
@@ -14,7 +15,7 @@ const labels = [
   "Level 5 (3 digit)",
 ]
 
-export function AdditionDifficultySelector({ difficulty, setDifficulty }: Props) {
+export default function DivisionDifficultySelector({ difficulty, setDifficulty }: Props) {
   return (
     <div>
       <Form>

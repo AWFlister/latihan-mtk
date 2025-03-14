@@ -1,4 +1,3 @@
-// STILL WIP
 import { Form } from "react-bootstrap";
 
 type Props = {
@@ -8,14 +7,14 @@ type Props = {
 
 const labels = [
   '',
-  "Level 1 (1 digit)",
-  "Level 2 (1 digit dan 2 digit)",
-  "Level 3 (2 digit)",
-  "Level 4 (2 digit dan 3 digit)",
-  "Level 5 (3 digit)",
+  "1 digit x 1 digit (< 5)",
+  "1 digit x 1 digit",
+  "2 digit x 1 digit (< 5)",
+  "2 digit x 1 digit",
+  "2 digit x 2 digit",
 ]
 
-export function DivisionDifficultySelector({ difficulty, setDifficulty }: Props) {
+export default function MultiplicationDifficultySelector({ difficulty, setDifficulty }: Props) {
   return (
     <div>
       <Form>
@@ -23,7 +22,7 @@ export function DivisionDifficultySelector({ difficulty, setDifficulty }: Props)
           labels.map((label, idx) => {
             if (idx) return (
               <Form.Check
-                id={`addition-${idx}-radio`}
+                id={`multiplication-${idx}-radio`}
                 key={label}
                 type="radio"
                 label={label}
